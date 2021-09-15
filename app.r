@@ -23,7 +23,7 @@ ui <- shinyUI(pageWithSidebar(
                 max = 10, step = 0.1, value = 3.0),
     
     br(),
-    tags$h6("宮城教育大学"),
+    tags$h6("XXXX大学"),
     tags$h6("（データクレジット...to be described...）"),
     br(),
     tags$h6("以下、アプリのプラン...."),
