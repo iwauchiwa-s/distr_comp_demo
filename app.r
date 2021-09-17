@@ -1,8 +1,6 @@
 library(shiny)
 library(shinyWidgets)
 
-# created by S. Sugawara v.1 2021/09/14
-
 # Define UI
 ui <- shinyUI(pageWithSidebar(
   
