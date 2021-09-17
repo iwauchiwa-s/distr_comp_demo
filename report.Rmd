@@ -1,0 +1,44 @@
+## 全国学力調査　正答数分布の比較 レポート
+宮城教育大学
+
+## 比較の設定
+
+* 選択した全国データ番号：`r param$slct`
+* 選択した全国データ名：`r param$d8`
+* 全国平均正答数：`r param$d1`
+* 全国平均標準偏差：`r param$d2`
+* 設定した平均正答数：`r param$av_set`
+* 設定した標準偏差：`r param$sd_set`
+
+
+## グラフ
+
+```{r echo=FALSE}
+    n <- 1000 
+    x1 <- seq(1, param$d7, length=n) 
+    # set vertical axis range
+    mx1 <- max( dnorm(x1,param$d1,param$d2))
+    mx2 <- max( dnorm(x1,param$d3,param$d4))
+    mx3 <- max( dnorm(x1,param$d5,param$d6))
+    mx4 <- max( dnorm(x1,param$av_set,param$sd_set))
+    mx <- max(mx1,mx2,mx3,mx4) * 1.1
+	# トップとボトム
+    curve(dnorm(x,param$d3,param$d4),1,param$d7, 
+          col = "gray", ylim=c(0,mx), xlab = "", ylab="", lwd=1)
+    curve(dnorm(x,param$d5,param$d6),1,param$d7, add = TRUE, col = "gray",lwd=1)
+    # color shade
+    # トップ
+    y1 <- dnorm(x1,param$d3,param$d4) 
+    # ボトム
+    y2 <- dnorm(x1,param$d5,param$d6) 
+    polygon( c(x1,rev(x1)), c(y1,rev(y2)), col="yellow")
+
+	# 全国平均
+    curve(dnorm(x,param$d1,param$d2),1,param$d7, add = TRUE,
+          col = "red", lwd=3)
+    # 設定値
+    curve(dnorm(x,param$av_set,param$sd_set),1,param$d7, add = TRUE,lwd=3)
+```
+
+
+
