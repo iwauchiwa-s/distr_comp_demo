@@ -71,7 +71,7 @@ ui <- shinyUI(pageWithSidebar(
     downloadButton('downloadReport'),
     br(),
     
-    tags$h6("宮城教育大学"),
+    tags$h6("XXXXXXX"),
     tags$h6("（国立教育政策研究所の「全国学力・学習状況調査」の報告書および公表データを使用しています）"),
     br()
     
